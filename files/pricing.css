@@ -1,0 +1,66 @@
+@media (min-width: 800px) {
+	.form-group {
+		padding: 0 20px;
+	}
+
+	.card {
+		padding: 0;
+		width: 49%;
+	}
+
+	.mdr10 {
+		margin-right: 2%;
+	}
+
+	.cards {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.form-group-day {
+		margin-top: 30px;
+	}
+}
+
+@media (max-width: 800px) {
+	body {
+		overflow-x: hidden;
+	}
+
+	.form-group {
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+
+	.card {
+		padding: 0;
+		width: 100%;
+
+
+	}
+
+	.cards {
+		width: 100%;
+		margin-left: 0 !important;
+	}
+
+	.disFlx {
+		padding-left: 0 !important;
+	}
+
+	.container {
+		overflow-x: hidden;
+		box-sizing: border-box;
+		width: 100%;
+		margin-top: 30px;
+		padding: 0 10px;
+	}
+
+	.mdr10 {
+		margin-bottom: 20px;
+	}
+
+	.form-group-day {
+		margin-top: 30px;
+	}
+}

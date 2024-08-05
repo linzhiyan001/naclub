@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="./files/color-modes.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="naclub">
+		<meta name="generator" content="naclub">
+		<title>naclub</title>
+		<link href="./files/bootstrap.min.css" rel="stylesheet">
+		<meta name="theme-color" content="#712cf9">
+		<link href="./files/pricing.css" rel="stylesheet">
+	</head>
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+
+		.nav-tabs {
+			width: 250px !important;
+		}
+
+		.banner_section {
+			padding-top: 120px !important;
+		}
+
+		.fieldset {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+
+		.form-name {
+			color: #333 !important;
+			margin-bottom: 10px;
+		}
+
+
+		.repaymentDays {
+			font-size: 24px;
+			font-weight: bold;
+
+		}
+
+		.form-group {
+			margin-bottom: 30px;
+		}
+
+		.form-group-day {
+			text-align: center;
+		}
+
+		.form-group-day p {
+			color: #000;
+			margin-top: 10px;
+			font-size: 24px;
+
+		}
+
+		.form-group-day h3 {
+			color: #000;
+			font-size: 32px;
+
+		}
+
+		.form-group-day img {
+			width: 60px;
+
+		}
+
+		.voteAmount {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.voteAmount span {
+			color: #000;
+		}
+
+		.voteAmount i {
+			font-style: normal;
+		}
+
+		.disabledCla {
+			background: #eee !important;
+		}
+
+		header {
+			background-color: #212529 !important;
+			color: #fff;
+			height: 56px;
+		}
+
+		header>div {
+			max-width: 1320px;
+			margin: 0 auto;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			font-size: 20px;
+			padding: 0 25px;
+			justify-content: space-between;
+		}
+
+		header>div a {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			margin-bottom: 0;
+			padding-bottom: 0;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.lang {
+			font-size: 16px;
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		.lang img {
+			width: 16px;
+			margin-left: 6px;
+			margin-top: 2px;
+		}
+
+		.form-group {
+			position: relative;
+		}
+
+		.section_title {
+			text-align: center;
+			margin-bottom: 50px;
+		}
+
+		.section_title h2 {
+			font-size: 40px;
+			margin-bottom: 20px;
+		}
+
+		
+		@media (min-width: 800px) {
+			.section_title h6 {
+				width: 1000px;
+				margin: 0 auto;
+			}
+			
+			.disFlx {
+				display: flex;
+				align-items: flex-end;
+				position: absolute;
+				top: -10px;
+				right: 0;
+				height: 32px !important;
+
+			}
+
+			.contact_form {
+				margin: 80px 0 0;
+			}
+
+			.disFlx p {
+				margin-bottom: 0 !important;
+			}
+
+			.disFlx input {
+				width: 100px;
+				margin-left: 10px;
+				height: 32px !important;
+			}
+		}
+
+		@media (max-width: 800px) {
+			.voteAmount {
+				display: block;
+			}
+
+			.voteAmount span {
+				display: block;
+			}
+
+			.form-name {
+				text-align: left;
+			}
+
+		}
+	</style>
+
+	<body>
+
+		<header>
+			<div>
+				<a>Calculator</a>
+				<a class="lang" href="naclub.html">简体中文 <img src="./img/1.png"> </a>
+			</div>
+		</header>
+		<div>
+			<main>
+				<section class="row_am pricing_section white_text" data-aos="fade-in" data-aos-duration="1500">
+					<div class="pricing_inner contact_form">
+						<!-- container start -->
+						<div class="container">
+							<div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+								<h2 style="color: #000;">GBOX-Profit Calculator</h2>
+								<h6 style="color: #000;">Investment involves risks, please make your decision with
+									caution. This income calculator is for reference only and does not constitute any
+									investment advice or guarantee.</h6>
+							</div>
+							<!-- Tabing Details -->
+							<div class="tab-content" id="myTabContent">
+								<!-- GAT -->
+								<div class="tab-pane fade show active" id="monthly" role="tabpanel"
+									aria-labelledby="monthly-tab">
+									<form data-aos="fade-up" data-aos-duration="1500">
+										<div class="row cards">
+											<div class="col-md-6  card mdr10">
+												<div class="fieldset card-header">Cost</div>
+												<div class="form-group">
+													<p class="form-name">GBox（USDT）:</p>
+													<input type="number" class="form-control miningMachine"
+														placeholder="Please enter the GBox purchase price" required
+														oninput="handleInputChange(event)">
+												</div>
+												<div class="form-group">
+													<p class="form-name">Custody Fees（USDT）:</p>
+													<select class="form-control" id="myGatSelect">
+														<option value="600">600</option>
+														<option value="1200">1200</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<p class="form-name">Transfer fee（USDT）:</p>
+													<input type="number" class="form-control transferFee" value="0"
+														oninput="handleInputChange(event)"
+														placeholder="Please enter the transfer fee">
+												</div>
+												<div class="form-group">
+													<p class="form-name">Total cost（USDT）:</p>
+													<input type="text" class="form-control  disabledCla totalCost"
+														disabled value="0">
+												</div>
+											</div>
+
+											<div class="col-md-6 card">
+												<div class="fieldset  card-header">Invest</div>
+												<div class="form-group">
+													<p class="form-name voteAmount">
+														<span>Number of votes（GAT）:</span>
+														<span>Today's GAT network voting: <i
+																class="gatVoteAmountTotal"></i></span>
+													</p>
+													<input type="number" oninput="profitInputChange(event)"
+														class="form-control numberOfPledgedCoins"
+														placeholder="Please enter the number of GAT votes" required>
+												</div>
+
+
+												<div class="form-group">
+													<div class="form-name voteAmount">
+														<div class="form-group disFlx">
+															<p class="form-name">Total number of devices:</p>
+															<input type="number" oninput="profitInputChange(event)"
+																class="form-control  allNetworkEquipment">
+														</div>
+														<span>Today's production capacity（GAT）:</span>
+
+													</div>
+													<select class="form-control">
+														<option class="dailyProductionCapacity" value=""></option>
+														<option class="ceviceComputingPower" disabled></option>
+														<option class="votingIncome" disabled></option>
+													</select>
+
+
+												</div>
+												<div class="form-group">
+													<p class="form-name">GAT Coin Price（USDT）:</p>
+													<input type="number" class="form-control disabledCla gatCoinPrice"
+														disabled value="0">
+												</div>
+												<div class="form-group">
+													<p class="form-name">Today's earnings（USDT）:</p>
+													<input type="number" class="form-control disabledCla dailyProfit"
+														disabled value="0">
+												</div>
+											</div>
+
+										</div>
+										<div class="form-group">
+											<div class="form-group-day">
+												<p>Estimated payback period</p>
+												<h3 class="expectedPaybackDays badge  text-bg-success">0 Day</h3>
+											</div>
+
+										</div>
+									</form>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+					<!-- container start end -->
+				</section>
+
+			</main>
+
+		</div>
+
+
+
+	</body>
+	<script src="./files/bootstrap.bundle.min.js"></script>
+	<script src="files/jquery.min.js"></script>
+	<script>
+		let gatCoinPrice = 0;
+		let nacCoinPrice = 0;
+		let gatVoteAmountTotal = 0;
+		let nacVoteAmountTotal = 0;
+		let numberOfPledgedCoins = 0;
+
+		$.ajax({
+			url: 'https://service.nachain.org/api/v1/getBasePrice',
+			type: 'GET',
+			dataType: 'json',
+			success: function(response) {
+				if (response.flag) {
+					response.data.forEach((e) => {
+						if (e.coinName == "GAT") {
+
+							gatCoinPrice = e.coinPrice
+							$('.gatCoinPrice').val(e.coinPrice)
+						}
+						if (e.coinName == "NAC") {
+
+							nacCoinPrice = e.coinPrice
+							$('.nacCoinPrice').val(e.coinPrice)
+						}
+
+					})
+					$.ajax({
+						url: 'https://vip-api.gather.top/open/api/getDeviceTotal',
+						type: 'GET',
+						dataType: 'json',
+						success: function(res) {
+							if (res.flag) {
+								let allNetworkEquipment = res.data;
+								$('.allNetworkEquipment').val(toFourDecimal(allNetworkEquipment))
+								$.ajax({
+									url: 'https://www.naclub.org/api/v1/getVoteStat',
+									type: 'GET',
+									dataType: 'json',
+									success: function(res2) {
+										if (res2.flag) {
+											$('.numberOfPledgedCoinsNac').val(1000)
+											$('.miningMachine').val(3499)
+											gatVoteAmountTotal = res2.data
+												.gatVoteAmountTotal;
+											nacVoteAmountTotal = res2.data
+												.nacVoteAmountTotal;
+											$('.gatVoteAmountTotal').html(toFourDecimal(
+												gatVoteAmountTotal))
+											$('.nacVoteAmountTotal').html(toFourDecimal(
+												nacVoteAmountTotal))
+											$.ajax({
+												url: 'https://www.naclub.org/api/v1/getGatVoteMaximum',
+												type: 'GET',
+												dataType: 'json',
+												success: function(res3) {
+													if (res3.flag) {
+														numberOfPledgedCoins =
+															res3.data
+														$('.numberOfPledgedCoins')
+															.val(
+																numberOfPledgedCoins
+															)
+														handleInputChange()
+														profitInputChange()
+														nacProfitInputChange()
+													}
+												}
+											});
+										}
+									}
+								});
+							}
+						}
+					});
+
+
+
+
+				}
+			}
+		});
+
+		// 下拉框-GAT
+		let custodyFee = 600
+		var selectElement = document.getElementById("myGatSelect");
+		selectElement.addEventListener("change", function() {
+			custodyFee = Number(selectElement.value)
+			console.log(custodyFee)
+			handleInputChange()
+		});
+
+		// GAT成本-GAT
+		function handleInputChange(event) {
+			if ($('.miningMachine').val() && Number($('.miningMachine').val()) < 0) {
+				$('.miningMachine').val(1)
+			}
+			if ($('.transferFee').val() && Number($('.transferFee').val()) < 0) {
+				$('.transferFee').val(0)
+			}
+			let miningMachine = Number($('.miningMachine').val()) || 0
+			let transferFee = Number($('.transferFee').val()) || 0
+			let totalCost = transferFee + miningMachine + custodyFee
+			let dailyProfit = Number($('.dailyProfit').val()) || 0
+			$('.totalCost').val(totalCost)
+			if ($('.numberOfPledgedCoins').val()) {
+				$('.expectedPaybackDays').html((toOneDecimal(totalCost / dailyProfit) || 0) + '天')
+			}
+
+		}
+
+		//  GAT利润-GAT
+		function profitInputChange(event) {
+			if ($('.numberOfPledgedCoins').val() && Number($('.numberOfPledgedCoins').val()) < 0) {
+				$('.numberOfPledgedCoins').val(1)
+			}
+			let numberOfPledgedCoins = Number($('.numberOfPledgedCoins').val() || 0)
+			let allNetworkEquipment = $('.allNetworkEquipment').val()
+			var integerPattern = /^[\d]+$/;
+			if (allNetworkEquipment) {
+				if (!integerPattern.test(allNetworkEquipment)) {
+					allNetworkEquipment = allNetworkEquipment.replace(/[^\d]/g, '');
+					$('.allNetworkEquipment').val(Number(allNetworkEquipment)) || 0
+				}
+			} else {
+				allNetworkEquipment = Number(allNetworkEquipment) || 0
+			}
+
+
+			let dailyProductionCapacity = (numberOfPledgedCoins / gatVoteAmountTotal) * 13000 + (6000 /
+				allNetworkEquipment) || 0
+			$('.dailyProductionCapacity').html(toFourDecimal(dailyProductionCapacity || 0))
+			$('.votingIncome').html('Voting power:' + toFourDecimal((numberOfPledgedCoins / gatVoteAmountTotal) * 13000))
+			$('.ceviceComputingPower').html('Device computing power:' + toFourDecimal(6000 / allNetworkEquipment))
+
+
+			let dailyProfit = dailyProductionCapacity * gatCoinPrice
+			let totalCost = Number($('.totalCost').val()) || 0
+			$('.dailyProfit').val(toFourDecimal(dailyProfit))
+			if ($('.numberOfPledgedCoins').val()) {
+				$('.expectedPaybackDays').html((toOneDecimal(totalCost / dailyProfit) || 0) + '天')
+			} else {
+				$('.expectedPaybackDays').html('0 Day')
+			}
+
+		}
+
+		// 下拉框-NAC
+		let custodyFeeNac = 290
+		var selectElementNac = document.getElementById("myNacSelect");
+		selectElementNac.addEventListener("change", function() {
+			custodyFeeNac = Number(selectElement.value)
+			nacHandleInputChange()
+		});
+
+		// 成本-NAC
+		function nacHandleInputChange(event) {
+			let miningMachineNac = Number($('.miningMachineNac').val()) || 0
+			let transferFeeNac = Number($('.transferFeeNac').val()) || 0
+			let totalCostNac = transferFeeNac + miningMachineNac + custodyFeeNac
+			let dailyProfitNac = Number($('.dailyProfitNac').val()) || 0
+			$('.totalCostNac').val(totalCostNac)
+			if ($('.numberOfPledgedCoinsNac').val()) {
+				$('.expectedPaybackDaysNac').html((toOneDecimal(totalCostNac / dailyProfitNac) || 0) + 'Day')
+			}
+
+		}
+
+		//  利润-NAC
+		function nacProfitInputChange(event) {
+			let numberOfPledgedCoinsNac = Number($('.numberOfPledgedCoinsNac').val() || 0)
+			let dailyProductionCapacityNac = (numberOfPledgedCoinsNac / nacVoteAmountTotal) * 13000
+			$('.dailyProductionCapacityNac').val(toFourDecimal(dailyProductionCapacityNac)) || 0
+			let dailyProfitNac = dailyProductionCapacityNac * nacCoinPrice
+			let totalCostNac = Number($('.totalCostNac').val()) || 0
+			$('.dailyProfitNac').val(toFourDecimal(dailyProfitNac))
+			if ($('.numberOfPledgedCoinsNac').val()) {
+				$('.expectedPaybackDaysNac').html((toOneDecimal(totalCostNac / dailyProfitNac) || 0) + 'Day')
+			} else {
+				$('.expectedPaybackDaysNac').html('0 Day')
+			}
+		}
+
+		function toOneDecimal(num) {
+			if (!num || num == 'Infinity') {
+				return ''
+			}
+			return Math.floor(num * 10) / 10;
+		}
+
+		function toFourDecimal(num) {
+			if (!num || num == 'Infinity') {
+				return ''
+			}
+			return Math.floor(num * 10000) / 10000;
+		}
+	</script>
+
+</html>
